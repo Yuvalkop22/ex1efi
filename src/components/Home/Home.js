@@ -29,6 +29,14 @@ export default function Home(props) {
     shop: "Mega",
     secImgUrl: "https://kavimvenekudot.files.wordpress.com/2013/11/d793d791d7a8-d799d7a8d797-1969-1.jpg",
     description: "Daily newspaper from yesterday...",
+  });
+  arr.push({
+    name: "Pringles",
+    price: '12',
+    imgUrl: "https://images.heb.com/is/image/HEBGrocery/002083687?fit=constrain,1&wid=800&hei=800&fmt=jpg&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0",
+    shop: "Yeinot Bitan",
+    secImgUrl: "https://www.pringles.com/content/global/pringles/he_IL/pages/home/jcr:content/gridSystem/par/Copy%20of%20Copy%20of%20feature/slideData/jcr:content/par/inuitgrid/par/inuitgrid_975246484/par/responsiveimage.img.png/1646381809402.png",
+    description: "Make your cans wider"
   })
   const nav = (name,description,shop,url) => {
     props.setName(name);
@@ -44,7 +52,7 @@ export default function Home(props) {
           arr.map(product=>
             <div className='expense-item' onClick={()=>nav(product.name, product.description,product.shop,product.secImgUrl)}>
               <h4 className='expense-item_description'>{product.name}<br />{product.price}₪</h4>
-              <img src={product.imgUrl} alt={product.name} width="60dp" height="40dp"/>
+              <img style={{ border: '1px solid' }} src={product.imgUrl} alt={product.name} width="70dp" height="70dp"/>
             </div>
           )
 
