@@ -1,7 +1,7 @@
 /* eslint-disable no-unreachable */
 import React from 'react'
 import './Home.css'
-import './Product.css'
+import './Product/Product.css'
 import { useNavigate } from 'react-router-dom';
 // import Product from './Product';
 export default function Home(props) {

@@ -5,8 +5,8 @@ import {
   Route,
 } from 'react-router-dom';
 import './App.css';
-import More from './components/More';
-import Home from './components/Home';
+import More from './components/More/More';
+import Home from './components/Home/Home';
 
 function App() {
   const [desc, setDesc] = useState("");
