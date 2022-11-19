@@ -1,0 +1,12 @@
+.img{
+    justify-items: right;
+    margin-left: auto;
+    margin-right: 0;
+    align-items: right;
+}
+.centerDiv{
+    display: 'flex';
+    align-Items: 'center';
+    justify-Content: 'center';
+
+}

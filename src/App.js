@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from 'react-router-dom';
 import './App.css';
+import More from './components/More';
+import Home from './components/Home';
 
 function App() {
+  const [desc, setDesc] = useState("");
+  const [name, setName] = useState("");
+  const [url, setUrl] = useState("");
+  const [shop, setShop] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path={'/'} element={<Home desc={desc} setDesc={setDesc} name={name} setName={setName} url={url}
+          setUrl={setUrl} shop={shop} setShop={setShop}/>}/>
+        <Route path={'/more'} element={<More desc={desc} setDesc={setDesc} name={name} setName={setName} url={url}
+          setUrl={setUrl} shop={shop} setShop={setShop} />} />
+      </Routes>
+    </Router> 
   );
 }
 
