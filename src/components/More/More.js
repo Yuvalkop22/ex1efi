@@ -1,8 +1,12 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './More.css'
 export default function More(props) {
   const navigation = useNavigate();
+  // eslint-disable-next-line no-restricted-globals
+  const location = useLocation();
+  const queryString = location.pathname.split("=")[1];
+  console.log(queryString)
   const nav = () => {
     navigation("/");
   }
@@ -11,12 +15,17 @@ export default function More(props) {
       position: 'absolute', left: '50%', top: '50%',
       transform: 'translate(-50%, -50%)',
     }}>
-      <h1>More information about {props.name}</h1>
-      <h3>Shop name = {props.shop}</h3>
-      <h3>Little description = {props.desc}</h3>
-      <img style={{border: '1px solid'}} src={props.url} alt={props.name} width="100dp" height="100dp"/>
-      <br/>
-      <button className='btn' onClick={nav}>Click to choose again</button>
+    {
+      props.props.filter(item => item.name === queryString).map(item=>
+        <div>
+          <h2>More information about {item.name}</h2>
+          <h3>Shop Name = {item.shop}</h3>
+          <h3>Little Description = {item.description}</h3>
+          <img src={item.secImgUrl} alt={item.name} width="100dp" height="100dp"/>
+        </div>
+      )
+    }
+    <button onClick={nav}>Click Me To Search Again</button>
     </div>
   )
 }
